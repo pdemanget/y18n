@@ -2072,7 +2072,7 @@ module.exports = new Type('tag:yaml.org,2002:null', {
       canonical: function () { return '~';    },
       lowercase: function () { return 'null'; },
       uppercase: function () { return 'NULL'; },
-      camelcase: function () { return 'Null'; },
+      camelcase: function () { return 'Null'; }
     }
   }
 });
@@ -5193,7 +5193,7 @@ module.exports = new Type('tag:yaml.org,2002:js/function', {
   },
   dumper: {
     kind: 'function',
-    representer: representJavascriptFunction,
+    representer: representJavascriptFunction
   }
 });
 

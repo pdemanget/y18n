@@ -1,0 +1,5 @@
+#parameters example
+#LOGIN Messages d'erreur
+test: string test
+err_401: "not logged"
+err_404: "not found"
