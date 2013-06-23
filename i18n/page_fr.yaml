@@ -2,17 +2,16 @@
 #parameters example
 - h1: titre
 - table: 
+#TODO border:1
   - tr: 
     - td: test1
     - td: test2
 - br: 
-- button:
-    onclick: show2()
-    text: test
+- page avec 2 boutons 
 - button:
     onclick: page('page3')
     text: page3
-
+- page inexistante
 - button:
     onclick: page('page4')
     text: page4

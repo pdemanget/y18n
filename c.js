@@ -13,19 +13,6 @@ var log=function(msg){
 }
 
 function init(){
-//load page 0
-		console.log('test C');
-		console.log(TEST.toto);
-		I18N.loadI18n('example');
-		//alert(I18N.example.test);
-		log('PAGE 0');
-		docw(t('h1', 'hello')+t('button','','onclick="doShow()"'),'');
-		
-}
-
-
-
-function doShow(){
 //load page 1	
 	//reload because of suicide of document.write
 	header = r('js/js-yaml.js')+
@@ -33,21 +20,10 @@ function doShow(){
 	r('b.js')+
 	r('c.js');
 	//loads yaml as js
-	I18N.loadI18n('page');
-	//then js as html
-	var  text= js2Html(I18N.page);
-	console.log(text);
-	log('PAGE 1');
-	docw(header,text);
-	//tw('button','test1','onclick="doShow()"');
-	//tw('button','test2','onclick="show2()"');
-	//close stream, (autoclosed in html loading) note that Chrome supports not closed document, but not firefox.
+	page('page');
 	
 }
-function show2(){
-//load page 2
- w('toto');
-}
+
 function page(no){
 //load page 2
  docw(header,js2Html(I18N.getI18n(no)));
@@ -72,7 +48,7 @@ function js2Html(elem, attributes){
 				var innerAtt={mutable:''};
 				var recur=js2Html(elem[i],innerAtt );
 				//var recur=js2Html(elem[i]);
-				res += t(i,recur,innerAtt.mutable);
+				res += t(i,recur,innerAtt.mutable)+'\n';
 			}
 		}else{
 			res += js2Html(elem[i]);
@@ -81,6 +57,3 @@ function js2Html(elem, attributes){
 	return res
 }
 
-(function(){
-  t('button','from c','onclick="doShow()"');
-}() )
